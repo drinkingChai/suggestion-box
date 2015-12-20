@@ -1,6 +1,10 @@
 <!--placeholder for comment in ng-view-->
 <div ng-repeat="comment in comments">
-	{{comment.body}}
+	<p>{{comment.body}}</p>
+	<p>UpVote: {{comment.upvotes}}</p>
+	<p>DownVote: {{comment.downvotes}}</p>
+	<button class="btn btn-default" ng-click="upVote($index)">Up vote</button>
+	<button class="btn btn-default" ng-click="downVote($index)">Down vote</button>
 </div>
 <form ng-submit="addComment()">
   	<div class="form-group">

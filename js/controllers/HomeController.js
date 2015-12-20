@@ -12,9 +12,10 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 	};
 
 	$scope.upVote = function(index) {
+		$scope.suggestions[index].upvotes += 1;
 	};
 
 	$scope.downVote = function(index) {
-		return;
+		$scope.suggestions[index].downvotes += 1;
 	};
 }]);

@@ -9,4 +9,16 @@ app.controller('CommentController', ['$scope', '$routeParams', 'suggestions', fu
 		$scope.comments.push($scope.newComment);
 		$scope.newComment = {};
 	};
+
+	$scope.upVote = function(index) {
+		$scope.comments[index].upvotes += 1;
+	};
+
+	$scope.downVote = function(index) {
+		$scope.comments[index].downvotes += 1;
+	};
+
+	$scope.sortComments = function() {
+
+	};
 }]);

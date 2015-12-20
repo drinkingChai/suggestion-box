@@ -3,8 +3,8 @@
 	<p>{{suggestion.body}}</p>
 	<p>UpVote: {{suggestion.upvotes}}</p>
 	<p>DownVote: {{suggestion.downvotes}}</p>
-	<button class="btn btn-default" ng-click="suggestions.upVote($index)">Up vote</button>
-	<button class="btn btn-default" ng-click="suggestions.downVote($index)">Up vote</button>
+	<button class="btn btn-default" ng-click="upVote($index)">Up vote</button>
+	<button class="btn btn-default" ng-click="downVote($index)">Up vote</button>
 	<a href='#/{{$index}}'>Comments</a>
 </div>
 
