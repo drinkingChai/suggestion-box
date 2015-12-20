@@ -8,16 +8,16 @@
 		"comments":
 			[
 				{
-					"author": "Me!",
+					"author": "test1",
 					"body": "test comment1",
-					"upvotes": 5,
-					"downvotes": 0,
+					"upvotes": 10,
+					"downvotes": 0
 				},
 				{
-					"authoer": "me2!!!",
+					"author": "test2",
 					"body": "test comment2",
-					"upvotes": 2,
-					"downvotes": 0,
+					"upvotes": 4,
+					"downvotes": 2
 				}
 			]
 	}
