@@ -1,5 +1,24 @@
 [
 	{
-		//placeholder
+		"author": "Wasif Zaman",
+		"date": 1288323623006,
+		"body": "test suggestion",
+		"upvotes": 10,
+		"downvotes": 2,
+		"comments":
+			[
+				{
+					"author": "Me!",
+					"body": "test comment1",
+					"upvotes": 5,
+					"downvotes": 0,
+				},
+				{
+					"authoer": "me2!!!",
+					"body": "test comment2",
+					"upvotes": 2,
+					"downvotes": 0,
+				}
+			]
 	}
 ]
