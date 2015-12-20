@@ -9,24 +9,29 @@
 	</head>
 	<body ng-app="SuggestionBox">
 
-		<div ng-view></div>
+		<div class="main">
+			<div class="container">
+
+				<div ng-view></div>
 
 
-		<!--Modules-->
-		<script type="text/javascript" src="js/app.js"></script>
+				<!--Modules-->
+				<script type="text/javascript" src="js/app.js"></script>
 
 
-		<!--Controllers-->
-		<script type="text/javascript" src="js/controllers/HomeController.js"></script>
-		<script type="text/javascript" src="js/controllers/CommentController.js"></script>
+				<!--Controllers-->
+				<script type="text/javascript" src="js/controllers/HomeController.js"></script>
+				<script type="text/javascript" src="js/controllers/CommentController.js"></script>
 
 
-		<!--Directives-->
+				<!--Directives-->
 
 
-		<!--Services-->
-		<script type="text/javascript" src="js/services/suggestions.js"></script>
+				<!--Services-->
+				<script type="text/javascript" src="js/services/suggestions.js"></script>
 
+			</div>
+		</div>
 
 	</body>
 </html>

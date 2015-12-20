@@ -1,1 +1,68 @@
 /*placeholder for index.html*/
+body {
+	background-color: #191818;
+	color: #fff;
+}
+
+h1 {
+	text-align: center;
+}
+
+hr {
+	border-color: #3FDAFF;
+}
+
+.container {
+	max-width: 800px;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+.form-control {
+	border-radius: 0;
+}
+
+.upvote, .comment {
+	width: 100%;
+}
+
+.glyphicon-circle-arrow-up{
+	color: #11b4d8;
+}
+
+.downvote {
+	background-color: red;
+}
+
+.list-group {
+	border-radius: 0;
+}
+
+.list-group-item {
+	background-color: transparent;
+	border-left-width: 0;
+	border-right-width: 0;
+	padding: 20px 0;
+	border-color: #3fdaff;
+}
+
+.textbody {
+	margin: 0 0 20px 0;
+}
+
+.list-group-item:first-child {
+	border-top-width: 0;
+}
+
+.list-group-item:last-child {
+	border-bottom-width: 0;
+}
+
+.return {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+}

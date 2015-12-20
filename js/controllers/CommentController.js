@@ -1,11 +1,11 @@
 app.controller('CommentController', ['$scope', '$routeParams', 'suggestions', function($scope, $routeParams, suggestions) {
 	suggestions.success(function(data) {
+		$scope.suggestion = data[$routeParams.index];
 		$scope.comments = data[$routeParams.index].comments;
 	});
 
 	$scope.newComment = {
-		upvotes: 0,
-		downvotes: 0
+		upvotes: 0
 	};
 
 	$scope.addComment = function() {
@@ -16,10 +16,6 @@ app.controller('CommentController', ['$scope', '$routeParams', 'suggestions', fu
 	$scope.upVote = function(index) {
 		$scope.comments[index].upvotes += 1;
 		$scope.sortComments();
-	};
-
-	$scope.downVote = function(index) {
-		$scope.comments[index].downvotes += 1;
 	};
 
 	$scope.sortComments = function() {

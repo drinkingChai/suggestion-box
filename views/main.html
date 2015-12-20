@@ -1,20 +1,32 @@
 <!--placeholder-->
-<div ng-repeat="suggestion in suggestions">
-	<p>{{suggestion.body}}</p>
-	<p>UpVote: {{suggestion.upvotes}}</p>
-	<p>DownVote: {{suggestion.downvotes}}</p>
-	<button class="btn btn-default" ng-click="upVote($index)">Up vote</button>
-	<button class="btn btn-default" ng-click="downVote($index)">Up vote</button>
-	<a href='#/{{$index}}'>Comments</a>
-</div>
+<div class="list-group">
+	<h1 class="list-group-item">Website Suggestion Box</h1>
 
-<form ng-submit="addSuggestion()">
-  	<div class="form-group">
-    	<label for="author">Name</label>
-    	<input class="form-control" id="author" placeholder="Author" ng-model="newSuggestion.author">
-  	</div>
-  	<div class="form-group">
-	    <textarea class="form-control" rows="3" placeholder="Comment..." ng-model="newSuggestion.body"></textarea>
-  	</div>
-  	<button type="submit" class="btn btn-default">Submit</button>
-</form>
+	<div class="list-group-item" ng-repeat="suggestion in suggestions">
+		<div class="row">
+			<div class="col-md-10">			
+				<p class="textbody">{{suggestion.body}}</p>
+			</div>
+			<div class="col-md-2">
+				<h5>{{suggestion.date | date}}</h5>
+				<h5>{{suggestion.author}}</h5>
+				<button class="btn btn-default upvote" ng-click="upVote($index)">
+					<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span> {{suggestion.upvotes}}
+				</button>
+				<a class="btn btn-default comment" href='#/{{$index}}'>Comments</a>
+			</div>
+		</div>
+	</div>
+
+
+	<form name="suggestionForm" class="list-group-item" ng-submit="suggestionForm.$valid && addSuggestion()">
+	  	<div class="form-group">
+	    	<input class="form-control" id="author" placeholder="Author" ng-model="newSuggestion.author" required>
+	  	</div>
+	  	<div class="form-group">
+		    <textarea class="form-control" rows="3" placeholder="Suggestion!!" ng-model="newSuggestion.body" required></textarea>
+	  	</div>
+	  	<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+
+</div>
