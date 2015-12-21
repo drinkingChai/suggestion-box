@@ -1,9 +1,9 @@
 //home controller placeholder
 app.controller('HomeController', ['$scope', '$http', 'suggestions', function($scope, $http, suggestions) {
-	suggestions.success(function(data) {
+	suggestions.appData.success(function(data) {
 		//get data from JSON and sort the suggestions
 		$scope.suggestions = data;
-		$scope.sortSuggestions();
+		suggestions.sortByUpvotes($scope.suggestions);
 	});
 
 	$scope.newSuggestion = {
@@ -27,15 +27,5 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 		//increment upvote by 1 and sort suggestions by upvote
 		$scope.suggestions[index].upvotes += 1;
 		$scope.sortSuggestions();
-	};
-
-	$scope.sortSuggestions = function() {
-		//sort suggestion by upvotes
-		$scope.suggestions.sort(function(a, b) {
-			//sort by the number of upvotes
-			if (a.upvotes < b.upvotes) { return 1; }
-			if (a.upvotes > b.upvotes) { return -1; }
-			return 0;
-		});
 	};
 }]);
