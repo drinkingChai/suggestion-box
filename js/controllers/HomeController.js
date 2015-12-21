@@ -3,7 +3,6 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 	suggestions.success(function(data) {
 		//get data from JSON and sort the suggestions
 		$scope.suggestions = data;
-		$scope.sortSuggestions();
 	});
 
 	$scope.newSuggestion = {
@@ -16,7 +15,11 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 		//add a new suggestion
 		$scope.newSuggestion.date = Date.now();	//log the current date
 		$scope.suggestions.push($scope.newSuggestion);	//push the suggestion
-		$scope.newSuggestion = {};	//clear the form
+		$scope.newSuggestion = {
+			//clear the form
+			upvotes: 0,
+			comments: []
+		};	
 	};
 
 	$scope.upVote = function(index) {
@@ -27,7 +30,7 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 
 	$scope.sortSuggestions = function() {
 		//sort suggestion by upvotes
-		var doubleArray = [];	//create double array to store number of upvotes as the first item and the object as a second item
+		var doubleArray = [];
 		for (index in $scope.suggestions) {
 			var upvoteCount = $scope.suggestions[index].upvotes;	//count the number of upvotes
 			doubleArray.push([upvoteCount, $scope.suggestions[index]]);	//push [upvotes, object] into the double array
@@ -40,7 +43,7 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 			return 0;
 		});
 
-		$scope.suggestions = [];	//clear out suggestions
+		$scope.suggestions = [];//clear out suggestions
 		for (var i = doubleArray.length - 1; i >= 0; i--) {
 			//push it in the order of most upvoted
 			$scope.suggestions.push(doubleArray[i][1]);

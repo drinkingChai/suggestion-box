@@ -13,7 +13,9 @@ app.controller('CommentController', ['$scope', '$routeParams', 'suggestions', fu
 	$scope.addComment = function() {
 		//add new comment and empty the form
 		$scope.comments.push($scope.newComment);
-		$scope.newComment = {};
+		$scope.newComment = {
+			upvotes: 0
+		};
 	};
 
 	$scope.upVote = function(index) {
@@ -27,7 +29,7 @@ app.controller('CommentController', ['$scope', '$routeParams', 'suggestions', fu
 		var doubleArray = [];
 		for (index in $scope.comments) {
 			var upvoteCount = $scope.comments[index].upvotes;	//count the number of upvotes
-			doubleArray.push([upvoteCount, $scope.comments[index]]);	//push [upvotes, object] into double array
+			doubleArray.push([upvoteCount, $scope.comments[index]]);//push [upvotes, object] into double array
 		}
 
 		doubleArray.sort(function(a, b) {
