@@ -3,6 +3,7 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 	suggestions.success(function(data) {
 		//get data from JSON and sort the suggestions
 		$scope.suggestions = data;
+		$scope.sortSuggestions();
 	});
 
 	$scope.newSuggestion = {
@@ -30,23 +31,11 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 
 	$scope.sortSuggestions = function() {
 		//sort suggestion by upvotes
-		var doubleArray = [];
-		for (index in $scope.suggestions) {
-			var upvoteCount = $scope.suggestions[index].upvotes;	//count the number of upvotes
-			doubleArray.push([upvoteCount, $scope.suggestions[index]]);	//push [upvotes, object] into the double array
-		}
-
-		doubleArray.sort(function(a, b) {
+		$scope.suggestions.sort(function(a, b) {
 			//sort by the number of upvotes
-			if (a[0] < b[0]) { return -1; }
-			if (a[0] > b[0]) { return 1; }
+			if (a.upvotes < b.upvotes) { return 1; }
+			if (a.upvotes > b.upvotes) { return -1; }
 			return 0;
 		});
-
-		$scope.suggestions = [];//clear out suggestions
-		for (var i = doubleArray.length - 1; i >= 0; i--) {
-			//push it in the order of most upvoted
-			$scope.suggestions.push(doubleArray[i][1]);
-		}
 	};
 }]);
