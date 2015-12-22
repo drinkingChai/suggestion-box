@@ -26,6 +26,6 @@ app.controller('HomeController', ['$scope', '$http', 'suggestions', function($sc
 	$scope.upVote = function(index) {
 		//increment upvote by 1 and sort suggestions by upvote
 		$scope.suggestions[index].upvotes += 1;
-		$scope.sortSuggestions();
+		suggestions.sortByUpvotes($scope.suggestions);
 	};
 }]);

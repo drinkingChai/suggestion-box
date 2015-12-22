@@ -21,6 +21,6 @@ app.controller('CommentController', ['$scope', '$routeParams', 'suggestions', fu
 	$scope.upVote = function(index) {
 		//increment upvotes by 1 and increment comments
 		$scope.comments[index].upvotes += 1;
-		$scope.sortComments();
+		suggestions.sortByUpvotes($scope.comments);
 	};
 }]);
